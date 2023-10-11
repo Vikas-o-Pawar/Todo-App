@@ -1,0 +1,43 @@
+.homeImageSection {
+  position: relative; /* to make the add to do button relative to the inner section */
+}
+
+
+.mainHomeImg {
+  width: 100%;
+  height: 90.2vh;
+}
+
+.addTodoBtn {
+  position: absolute;
+  top: 50%;
+  left: 36%;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  background-color: #151515;
+  color: #f9f7f8;
+  font-weight: bolder;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition-duration: .4s;
+  transform: skew(-3deg, -3deg);
+}
+
+.addTodoBtn:hover {
+  background-color: #e5e4ea;
+  color: #151515;
+}
+
+.todoMainHeading {
+  position: absolute;
+  top: 13%;
+  font-size: 2rem;
+  left: 23%;
+  transform: skew(8deg, 8deg);
+  transition-duration: .2s;
+}
+
+.todoMainHeading:hover {
+  cursor: pointer;
+  color: white;
+}

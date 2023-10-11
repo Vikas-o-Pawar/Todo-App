@@ -1,0 +1,77 @@
+.mainNavSection {
+    background-color: #65717f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 5rem;
+
+}
+
+.mainFeatureNavSection {
+    display: flex;
+    display: flex;
+    min-width: 66%;
+    justify-content: space-between;
+}
+
+.logoTo-DoSection {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.featureNavDiv {
+    display: flex;
+}
+
+.userLoginSignupNav {
+    display: flex;
+}
+
+.burgerNav {
+    display: none;
+}
+
+/* responsive design for the navbar */
+@media (max-width: 740px) {
+    body {
+        overflow-x: hidden;
+    }
+    .burgerNav {
+        display: block;
+    }
+
+    .mainFeatureNavSection {
+        position: absolute;
+        right: 0;
+        top: 8%;
+        background-color:  #65717f;
+        display: flex;
+        flex-direction: column;
+        height: 91vh;
+        z-index: 2;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .featureNavDiv, .userLoginSignupNav {
+        display: flex;
+        flex-direction: column;
+        height: 50vh;
+        justify-content: space-around;
+        font-size: 1.2rem
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+}
+
+@media (max-width: 350px) {
+    body {
+        overflow-x: hidden;
+    }
+
+}
