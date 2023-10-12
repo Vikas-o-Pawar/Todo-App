@@ -2,7 +2,6 @@
   position: relative; /* to make the add to do button relative to the inner section */
 }
 
-
 .mainHomeImg {
   width: 100%;
   height: 90.2vh;
@@ -12,14 +11,14 @@
   position: absolute;
   top: 50%;
   left: 36%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   border: none;
   background-color: #151515;
   color: #f9f7f8;
   font-weight: bolder;
   padding: 5px 8px;
   cursor: pointer;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
   transform: skew(-3deg, -3deg);
 }
 
@@ -30,14 +29,68 @@
 
 .todoMainHeading {
   position: absolute;
-  top: 13%;
+  top: 12%;
   font-size: 2rem;
-  left: 23%;
+  left: 21%;
   transform: skew(8deg, 8deg);
-  transition-duration: .2s;
+  transition-duration: 0.2s;
+  max-width: 100%;
 }
 
 .todoMainHeading:hover {
   cursor: pointer;
   color: white;
 }
+
+@media screen and (max-width: 990px) {
+  .todoMainHeading {
+    max-width: 45%;
+    font-size: 1.56em;
+    transform: skew(2deg,11deg);
+    top: 15%;
+  }
+}
+
+
+@media screen and (max-width: 770px) {
+  .todoMainHeading {
+    transform: skew(2deg,14deg);
+    font-size: 1.46rem;
+    left: 19%;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .todoMainHeading {
+    transform: skew(2deg,17deg);
+    font-size: 1.26rem;
+    left: 17%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .todoMainHeading {
+    transform: skew(0);
+    top: 15%;
+    left: 5%;
+    font-size: 2rem;
+    max-width: 80%;
+    color: #6b7f96;
+  }
+
+  .addTodoBtn {
+    top: 85%;
+    left: 55%;
+    padding: 15px 20px;
+    transform: skew(0, 0);
+  } 
+}
+
+@media screen and (max-width: 450px) {
+  .mainHomeImg {
+    width: 100%;
+    height: 86.1vh;
+  }
+}
+
+

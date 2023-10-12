@@ -13,7 +13,7 @@ function Navbar() {
     const activateNav = mobileNavAppear === true? `${classes['nav-active']}`: '';
 
     return (
-        <>
+        <section className={classes.mainNavSectionMain}>
             <Burger onClick={burgerClickHandler} burgerNav={classes.burgerNav} />
 
             <section className={classes.mainNavSection}>
@@ -35,8 +35,7 @@ function Navbar() {
                     </section>
                 </section>
             </section>
-
-        </>
-    )
+        </section>
+    );
 }
 export default Navbar

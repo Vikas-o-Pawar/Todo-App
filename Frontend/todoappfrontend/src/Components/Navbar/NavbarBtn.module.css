@@ -1,19 +1,24 @@
 .navList {
-    list-style: none;
-    margin: 0px 5px;
+  list-style: none;
+  margin: 0px 5px;
 }
 
 .navLink {
-    text-decoration: none;
-    color: white;
-    padding: 4px 10px;
-    transition-duration: .3s;
-    font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: white;
+  padding: 4px 10px;
+  transition-duration: 0.3s;
+  font-family: "Roboto", sans-serif;
 }
 
 .navLink:hover {
-    color: black;
-    background-color: white;
-    border-radius: 17px;
-    padding: 4px 10px;
+  color: black;
+  background-color: white;
+  border-radius: 17px;
+  padding: 4px 10px;
+}
+
+.navLink:active {
+  background-color: #151515;
+  color: white;
 }
