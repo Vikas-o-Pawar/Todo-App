@@ -1,13 +1,17 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import classes from './NavbarBtn.module.css'
 
 function NavbarBtn(props) {
     return (
         <li className={classes.navList}>
-            <a href="#" className={classes.navLink}>
+            <NavLink to={props.link} className={
+                ({ isActive }) => isActive ? `${classes.navActive}` : `${classes.navLink}`
+            }
+                end>
                 {props.navItemName}
-            </a>
-        </li>
+            </NavLink>
+        </li >
     )
 }
 

@@ -1,0 +1,115 @@
+.mainSignUpSection {
+  position: relative;
+}
+
+.loginSignUpImgDiv > img {
+  width: 100%;
+  height: 90.2vh;
+}
+
+.signUpSection {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 77px;
+  right: 150px;
+}
+
+.formInputDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 34vh;
+}
+
+.formHeading {
+  color: white;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.inputDiv {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.inputDiv::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  bottom: 0;
+  left: 25%;
+  transition-duration: 0.4s;
+}
+
+.inputDiv:hover::after {
+  content: "";
+  width: 75%;
+  border-bottom: 1px solid gray;
+}
+
+.inputDiv label {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.signupBtn {
+  background-color: #65717f;
+  color: white;
+  padding: .6rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.99rem;
+  transition-duration: 0.35s;
+}
+
+.signupBtn:hover {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.signupBtn:active {
+  background-color: #65717f;
+}
+
+@media screen and (min-width: 1370px) {
+  .signUpSection {
+    top: 77px;
+    right: 250px;
+  }
+
+  .formHeading {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 849px) {
+  .mainSignUpSection {
+    background: linear-gradient(#245685, #062039);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+  }
+
+  .signUpSection {
+    position: static;
+    max-width: 65%;
+    margin-top: 7rem;
+  }
+
+  .formHeading {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .formHeading {
+    font-size: 1.55rem;
+  }
+
+  .signUpSection {
+    min-width: 95%;
+  }
+}

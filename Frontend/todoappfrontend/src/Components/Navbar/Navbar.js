@@ -23,15 +23,15 @@ function Navbar() {
                 <section className={`${classes.mainFeatureNavSection} ${activateNav}`}>
                     <section className={classes.featureNavSection}>
                         <div className={classes.featureNavDiv}>
-                            <NavbarBtn navItemName={"Home"} />
-                            <NavbarBtn navItemName={"Add To-Do"} />
-                            <NavbarBtn navItemName={"Recycled To-Do"} />
+                            <NavbarBtn link={"/"} navItemName={"Home"} />
+                            <NavbarBtn link={"/addToDo"} navItemName={"Add To-Do"} />
+                            <NavbarBtn link={"/recycledToDo"} navItemName={"Recycled To-Do"} />
                         </div>
                     </section>
 
                     <section className={classes.userLoginSignupNav}>
-                        <NavbarBtn navItemName={"Login"} />
-                        <NavbarBtn navItemName={"Signup"} />
+                        <NavbarBtn link={"/login"} navItemName={"Login"} />
+                        <NavbarBtn link={"/Signup"} navItemName={"Signup"} />
                     </section>
                 </section>
             </section>

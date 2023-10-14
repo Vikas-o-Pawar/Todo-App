@@ -1,0 +1,23 @@
+.userInput {
+    border: none;
+    outline: none;
+    color: white;
+    min-width: 75%;
+    position: relative; 
+    font-size: 1rem;
+    padding: 0.8rem 0rem;
+    padding-bottom: 0;
+    background-color: transparent;
+}
+
+
+.userInput:focus {
+    border-bottom: 1px solid gray;
+}
+
+@media screen and (max-width: 849px) {
+    .userInput {
+        background-color: #0f2541;    
+        padding: .8rem 0;
+    }
+}
