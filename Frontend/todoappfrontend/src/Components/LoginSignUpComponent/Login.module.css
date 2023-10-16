@@ -58,7 +58,7 @@
 .loginBtn {
   background-color: #65717f;
   color: white;
-  padding: .6rem 1.4rem;
+  padding: 0.6rem 1.4rem;
   cursor: pointer;
   font-size: 0.99rem;
   transition-duration: 0.35s;
@@ -70,7 +70,7 @@
 }
 
 .loginBtn:active {
-    background-color: #65717f;
+  background-color: #65717f;
 }
 
 @media screen and (min-width: 1370px) {
@@ -111,5 +111,35 @@
 
   .loginSection {
     min-width: 95%;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .loginSection {
+    position: static;
+    max-width: 25%;
+    margin-top: 7rem;
+  }
+
+  .formHeading {
+    font-size: 1.25rem;
+  }
+
+  .inputDiv {
+    max-width: 90%;
+  }
+
+  .inputDiv::after {
+    content: "";
+    display: none;
+  }
+}
+
+@media screen and  (max-width: 237px) {
+  .inputDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
   }
 }

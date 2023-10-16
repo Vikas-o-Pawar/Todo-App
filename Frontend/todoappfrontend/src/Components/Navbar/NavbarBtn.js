@@ -4,7 +4,7 @@ import classes from './NavbarBtn.module.css'
 
 function NavbarBtn(props) {
     return (
-        <li className={classes.navList}>
+        <li onClick={props.onClick} className={classes.navList}>
             <NavLink to={props.link} className={
                 ({ isActive }) => isActive ? `${classes.navActive}` : `${classes.navLink}`
             }

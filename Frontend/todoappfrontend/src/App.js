@@ -1,5 +1,4 @@
 import Signup from './Components/LoginSignUpComponent/Signup';
-import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/HomeComp/Home';
 import Login from './Components/LoginSignUpComponent/Login'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';

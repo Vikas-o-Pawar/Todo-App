@@ -57,7 +57,7 @@
     .featureNavDiv, .userLoginSignupNav {
         display: flex;
         flex-direction: column;
-        height: 40vh;
+        height: 25vh;
         justify-content: space-around;
         font-size: 1.2rem
     }
@@ -66,5 +66,13 @@
         transform: translateX(0%);
         transition-duration: .3s;
         display: block;
+    }
+}
+
+/* for extremely small screens make the todo app heading small */
+@media screen and (max-width: 170px) {
+    .logoTo-DoSection {
+        font-size: .4rem;       
+        width: 25%;
     }
 }

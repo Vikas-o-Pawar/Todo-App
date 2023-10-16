@@ -1,0 +1,40 @@
+.todoCardSection {
+    padding: 1rem 0rem;
+    background: linear-gradient(to right, #b4b3b3, rgb(168, 163, 163));
+    box-shadow: 10px 10px 8px #888888;
+}
+
+.todoCardDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.todoContentDiv {
+    padding-left: 1rem;
+}
+
+.todoCardControlBtnDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.editToDoBtn {
+  background-color: #65717f;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.deleteToDoBtn {
+  background-color: #65717f;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.editToDoBtn:active, .deleteToDoBtn:active {
+    color: #65717f;
+    background-color: transparent;
+}

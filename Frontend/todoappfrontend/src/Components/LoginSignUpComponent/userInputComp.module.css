@@ -21,3 +21,10 @@
         padding: .8rem 0;
     }
 }
+
+@media screen and (max-width: 237px) {
+    .userInput {
+        padding: .3rem 0rem;
+        width: 25%;
+    }
+}
