@@ -31,7 +31,7 @@ function Login() {
         </div>
 
         <div className={classes.formDiv}>
-          <form action="" method='POST'>
+          <form action="http://localhost:8080/login" method='POST'>
             <div className={classes.formInputDiv}>
               <div className={`${classes.emailInputDiv} ${classes.inputDiv}`}>
                 <label htmlFor="userEmail">Email</label>
