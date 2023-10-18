@@ -32,7 +32,7 @@ function Signup() {
                 </div>
 
                 <div className={classes.formDiv}>
-                    <form action="" method='POST'>
+                    <form action="http://localhost:8080/signup" method='POST'>
                         <div className={classes.formInputDiv}>
                             <div className={`${classes.nameInputDiv} ${classes.inputDiv}`}>
                                 <label htmlFor="userName">Name</label>
