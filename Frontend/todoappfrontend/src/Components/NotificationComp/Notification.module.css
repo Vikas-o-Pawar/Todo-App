@@ -1,0 +1,40 @@
+.notificationDiv {
+  display: flex;
+  align-items: center;
+}
+
+.positiveNotifClass {
+  position: absolute;
+  top: 1rem;
+  left: 21rem;
+  z-index: 1;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.positiveNotifClass p {
+  font-size: 1rem;
+  color: #155724;
+  letter-spacing: 2px;
+}
+
+.negativeNotifClass {
+  position: absolute;
+  top: 1rem;
+  left: 21rem;
+  z-index: 1;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  background-color: #f8d7da;;
+  border-color: #f5c6cb;
+}
+
+.negativeNotifClass p {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #721c24;;
+}

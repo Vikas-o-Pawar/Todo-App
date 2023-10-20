@@ -6,6 +6,8 @@ import Root from './pages/Root';
 import ErrorElement from './pages/ErrorElement';
 import AddToDo from './Components/MainToDoComp/TodoAddComp/AddToDo';
 import RecycledTodo from './Components/MainToDoComp/RecycledToDoComp/RecycledTodo';
+import TodoEdit from './Components/MainToDoComp/TodoEditComp/TodoEdit';
+import EditTodoProvider from './Components/Context/EditToDoContext/EditTodo-Provider';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/recycledToDo", element: <RecycledTodo /> },
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <Signup /> },
+      { path: "/editToDo", element: <TodoEdit /> }
     ]
   },
 ])
@@ -25,7 +28,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <EditTodoProvider>
+        <RouterProvider router={router} />
+      </EditTodoProvider>
     </>
   );
 }

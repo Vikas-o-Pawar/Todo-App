@@ -1,19 +1,28 @@
 import React from 'react'
 import classes from './ToDoCard.module.css'
 import TodoBtn from '../../TodoControlButtonComp/TodoBtn'
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react';
+import editToDoContext from '../../Context/EditToDoContext/EditTodo-Context';
 
-function ToDoCard() {
+function ToDoCard(props) {
+    const editCtx = useContext(editToDoContext);
+    const navigate = useNavigate();
+
+    const editNavHandler =  async () => {
+        await editCtx.updateEditTodo(props.todoContent)
+        navigate("/editToDo")
+    }
     return (
         <section className={classes.todoCardSection}>
 
             <div className={classes.todoCardDiv}>
                 <div className={classes.todoContentDiv}>
-                    <p className={classes.todoContent}>Content
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, molestias dolores sapiente asperiores neque labore recusandae officia pariatur quo tenetur. Ipsam nisi saepe dolorem rem eum voluptatibus ratione, ipsum dolores.</p>
+                    <p className={classes.todoContent}>{props.todoContent}</p>
                 </div>  
 
                 <div className={classes.todoCardControlBtnDiv}>
-                    <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} controlBtnName={"Edit"} />
+                    {props.cardFunction === "addToDo" && <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
                     <TodoBtn  dynamicToDoBtnClassName={classes.deleteToDoBtn} controlBtnName={"Delete"} />
                 </div>
             </div>
