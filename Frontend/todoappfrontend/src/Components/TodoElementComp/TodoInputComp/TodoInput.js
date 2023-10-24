@@ -19,7 +19,7 @@ function TodoInput(props) {
   // props.editTodoContent contains the edited todo, if it is undefined then we keep the todocontent empty, so addToDo pages shows empty text
   let todoContent = props.editToDoContent;
 
-  if(props.editToDoContent === undefined) {
+  if(props.editToDoContent === undefined || props.editToDoContent === null) {
     todoContent = ""
   }
   return (

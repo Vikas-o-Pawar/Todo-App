@@ -4,8 +4,10 @@ import TodoInput from '../../TodoElementComp/TodoInputComp/TodoInput';
 import TodoBtn from '../../TodoControlButtonComp/TodoBtn';
 import editToDoContext from '../../Context/EditToDoContext/EditTodo-Context';
 import { useContext } from 'react';
+import { useCheckLoggedInAndRedirect } from '../../../auth/useCheckLoggedInAndRedirect';
 
 function TodoEdit(props) {
+    useCheckLoggedInAndRedirect()
     const editCtx = useContext(editToDoContext);
 
     useEffect(() => {
