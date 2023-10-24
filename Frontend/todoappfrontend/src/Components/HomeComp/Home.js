@@ -4,13 +4,13 @@ import classes from './Home.module.css'
 import TodoBtn from '../TodoControlButtonComp/TodoBtn'
 import { useState } from 'react'
 import mainHomeMobileImg from '../../Images/Home/homeImageSmall.jpg'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useRouteLoaderData } from 'react-router-dom'
 
 function Home() {
   const [currentWidthImage, setCurrentWidthImage] = useState(window.innerWidth);
   const navigate = useNavigate();
-
-  useState(() => {
+  const token = useRouteLoaderData("root");
+  useState(() => { 
     const handleResize = () => {
       setCurrentWidthImage(window.innerWidth)
     }
@@ -23,7 +23,12 @@ function Home() {
   } , []);
 
   const navigateHandler = () => {
-    navigate("/addToDo")
+    if(token === null) {
+      navigate("/login")
+    } else {
+
+      navigate("/addToDo")
+    }
   }
 
   const homeImg = currentWidthImage <= 575 ? mainHomeMobileImg : mainHomeImg

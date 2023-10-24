@@ -13,6 +13,7 @@
   justify-content: center;
   background-color: #d4edda;
   border-color: #c3e6cb;
+  height: 6vh;
 }
 
 .positiveNotifClass p {
@@ -31,6 +32,8 @@
   justify-content: center;
   background-color: #f8d7da;;
   border-color: #f5c6cb;
+  height: 16vh;
+
 }
 
 .negativeNotifClass p {

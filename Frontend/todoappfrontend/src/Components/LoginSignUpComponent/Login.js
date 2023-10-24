@@ -4,6 +4,7 @@ import UserInputComp from './UserInputComp'
 import TodoBtn from '../TodoControlButtonComp/TodoBtn.js'
 import loginSignUpBGImg from '../../Images/UserAuth/loginSignupImg.jpg';
 import { useState } from 'react';
+import { Form } from 'react-router-dom';
 
 function Login() {
   const [currentWidthImage, setCurrentWidthImage] = useState(window.innerWidth);
@@ -31,7 +32,7 @@ function Login() {
         </div>
 
         <div className={classes.formDiv}>
-          <form action="http://localhost:8080/login" method='POST'>
+          <Form method='POST'>
             <div className={classes.formInputDiv}>
               <div className={`${classes.emailInputDiv} ${classes.inputDiv}`}>
                 <label htmlFor="userEmail">Email</label>
@@ -46,7 +47,7 @@ function Login() {
             </div>
 
             <TodoBtn type={"submit"} dynamicToDoBtnClassName={classes.loginBtn} controlBtnName={"Login"} />
-          </form>
+          </Form>
         </div>
 
 

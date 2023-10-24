@@ -8,12 +8,12 @@ exports.login = (req, res, next) => {
     const email = req.body.userEmail;
     const password = req.body.userPassword;
     let loadedUser;
-
+    console.log("I am triggered")
     User.findOne({ email: email })
         .then(userDoc => {
             if (!userDoc) {
                 const error = new Error("A user with this email could not be found.")
-                error.statusCode = 401;
+                error.statusCode = 404;
                 throw error;
             }
 
@@ -24,6 +24,8 @@ exports.login = (req, res, next) => {
             if (!isEqual) {
                 const error = new Error("Wrong password entered.")
                 error.statusCode = 401;
+                error.result = "Failure"
+                error.messsage = "Wrong password entered"
                 throw error;
             }
 
@@ -34,10 +36,13 @@ exports.login = (req, res, next) => {
                 }, '#&@^@^@*&^#&@secret(!)$*@^*QE',
                 { expiresIn: '1h' })
 
-            res.status(200).json({ token: token, userId: loadedUser._id.toString() });
+            res.status(200).json({ token: token, userId: loadedUser._id.toString(), result: "Success", message: "Logged in!", status:200 });
         }).
         catch(err => {
-            console.log(err);
+            if (!err.statusCode) {
+                err.statusCode = 500;
+              }
+            next(err);
         })
 
 };
@@ -46,7 +51,7 @@ exports.login = (req, res, next) => {
 
 exports.signup = (req, res, next) => {
     const errors = validationResult(req);
-    if (errors.isEmpty() === false) {
+    if (!errors.isEmpty()) {
         const error = new Error("Validation error");
         error.status = 501;
         error.data = errors.array();
@@ -70,17 +75,20 @@ exports.signup = (req, res, next) => {
 
                         return newUser.save()
                             .then(() => {
-                                res.status(200).json({ status: "User was created" })
+                                res.status(200).json({ status: 200,  message: "User was created", result: "success" })
                             })
                             .catch(err => {
-                                res.status(500).json({ status: "User could not be created" })
+                                res.status(500).json({status: 500, message: "User could not be created" }, {result: "Failure"})
                             });
                     } else {
-                        res.status(500).json({ status: "USER already exists" })
+                        res.status(409).json({ status:409, message : "USER already exists", result: "Failure" })
                     }
                 });
         }).
         catch(err => {
-            console.log(err);
-        })
+            if (!err.statusCode) {
+                err.statusCode = 400;
+            }
+            next(err);
+        });
 }

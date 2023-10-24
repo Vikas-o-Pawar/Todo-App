@@ -4,6 +4,7 @@ import UserInputComp from './UserInputComp'
 import TodoBtn from '../TodoControlButtonComp/TodoBtn.js'
 import loginSignUpBGImg from '../../Images/UserAuth/loginSignupImg.jpg';
 import { useState } from 'react';
+import { Form } from 'react-router-dom';
 
 function Signup() {
     const [currentWidthImage, setCurrentWidthImage] = useState(window.innerWidth);
@@ -18,12 +19,12 @@ function Signup() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    })
+    }, [])
 
     return (
         <section className={classes.mainSignUpSection}>
             <div className={classes.loginSignUpImgDiv}>
-               {currentWidthImage>= 850 &&  <img src={loginSignUpBGImg}  alt="" />}
+                {currentWidthImage >= 850 && <img src={loginSignUpBGImg} alt="" />}
 
             </div>
             <section className={classes.signUpSection}>
@@ -32,7 +33,7 @@ function Signup() {
                 </div>
 
                 <div className={classes.formDiv}>
-                    <form action="http://localhost:8080/signup" method='POST'>
+                    <Form method='POST'>
                         <div className={classes.formInputDiv}>
                             <div className={`${classes.nameInputDiv} ${classes.inputDiv}`}>
                                 <label htmlFor="userName">Name</label>
@@ -52,7 +53,7 @@ function Signup() {
                         </div>
 
                         <TodoBtn type={"submit"} dynamicToDoBtnClassName={classes.signupBtn} controlBtnName={"Sign Up"} />
-                    </form>
+                    </Form>
                 </div>
 
 
@@ -62,3 +63,5 @@ function Signup() {
 }
 
 export default Signup
+
+

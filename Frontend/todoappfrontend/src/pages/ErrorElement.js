@@ -1,14 +1,18 @@
-import React from 'react'
+// import React, { useEffect } from 'react'
+// import React from 'react'
 import Navbar from '../Components/Navbar/Navbar'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 function ErrorElement() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    setTimeout(() => {
-        navigate("/")
-    },
-        2500);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         navigate("/")
+    //     },
+    //         2500);
+    // })
+
 
     return (
         <div>
