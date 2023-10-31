@@ -4,12 +4,13 @@ import TodoBtn from '../../TodoControlButtonComp/TodoBtn'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react';
 import editToDoContext from '../../Context/EditToDoContext/EditTodo-Context';
+import { Form } from 'react-router-dom';
 
 function ToDoCard(props) {
     const editCtx = useContext(editToDoContext);
     const navigate = useNavigate();
 
-    const editNavHandler =  async () => {
+    const editNavHandler = async () => {
         await editCtx.updateEditTodo(props.todoContent)
         navigate("/editToDo")
     }
@@ -19,11 +20,13 @@ function ToDoCard(props) {
             <div className={classes.todoCardDiv}>
                 <div className={classes.todoContentDiv}>
                     <p className={classes.todoContent}>{props.todoContent}</p>
-                </div>  
+                </div>
 
                 <div className={classes.todoCardControlBtnDiv}>
                     {props.cardFunction === "addToDo" && <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
-                    <TodoBtn  dynamicToDoBtnClassName={classes.deleteToDoBtn} controlBtnName={"Delete"} />
+                    <Form>
+                        <TodoBtn name={"DeleteBtn"} dynamicToDoBtnClassName={classes.deleteToDoBtn} controlBtnName={"Delete"} />
+                    </Form>
                 </div>
             </div>
         </section>

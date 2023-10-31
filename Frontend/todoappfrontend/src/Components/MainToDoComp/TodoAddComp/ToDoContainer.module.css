@@ -1,0 +1,26 @@
+.todoCardMainDiv {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 2rem;
+  padding: 0rem 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  .todoCardMainDiv {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .todoCardMainDiv {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0rem 0.3rem;
+  }
+}

@@ -8,12 +8,13 @@ exports.login = (req, res, next) => {
     const email = req.body.userEmail;
     const password = req.body.userPassword;
     let loadedUser;
-    console.log("I am triggered")
     User.findOne({ email: email })
         .then(userDoc => {
             if (!userDoc) {
-                const error = new Error("A user with this email could not be found.")
+                const error = new Error("User already exists")
                 error.statusCode = 404;
+                error.result = "Failure";
+                error.message = "User Doesn't exist"
                 throw error;
             }
 
@@ -36,7 +37,7 @@ exports.login = (req, res, next) => {
                 }, '#&@^@^@*&^#&@secret(!)$*@^*QE',
                 { expiresIn: '1h' })
 
-            res.status(200).json({ token: token, userId: loadedUser._id.toString(), result: "Success", message: "Logged in!", status:200 });
+            res.status(200).json({ token: token, userId: loadedUser._id.toString(), result: "Success", message: "Logged in!", status:200, task:"login" });
         }).
         catch(err => {
             if (!err.statusCode) {

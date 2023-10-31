@@ -1,19 +1,27 @@
+.superMainNotifSection {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+}
+
 .notificationDiv {
   display: flex;
   align-items: center;
 }
 
 .positiveNotifClass {
-  position: absolute;
+  /* position: absolute;
   top: 1rem;
-  left: 21rem;
+  left: 21rem; */
   z-index: 1;
   display: flex;
   width: 50%;
   justify-content: center;
   background-color: #d4edda;
   border-color: #c3e6cb;
-  height: 6vh;
+  /* height: 6vh; */
 }
 
 .positiveNotifClass p {
@@ -23,21 +31,66 @@
 }
 
 .negativeNotifClass {
-  position: absolute;
-  top: 1rem;
-  left: 21rem;
+  /* position: absolute; */
+  /* top: 1rem; */
+  /* left: 21rem; */
   z-index: 1;
   display: flex;
   width: 50%;
   justify-content: center;
-  background-color: #f8d7da;;
+  background-color: #f8d7da;
   border-color: #f5c6cb;
-  height: 16vh;
-
 }
 
 .negativeNotifClass p {
-    font-size: 1rem;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #721c24;
+}
+
+@media screen and (max-width: 570px) {
+  .negativeNotifClass p {
+    font-size: 0.7rem;
     letter-spacing: 2px;
-    color: #721c24;;
+    color: #721c24;
+  }
+
+  .positiveNotifClass p {
+    font-size: .7rem;
+    color: #155724;
+    letter-spacing: 2px;
+  }
+  
+
+  .positiveNotifClass {
+    z-index: 1;
+    display: flex;
+    width: 75%;
+    justify-content: center;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+
+  .negativeNotifClass {
+    z-index: 1;
+    display: flex;
+    width: 75%;
+    justify-content: center;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .negativeNotifClass p {
+    font-size: 0.3rem;
+    letter-spacing: 1px;
+    color: #721c24;
+  }
+
+  .positiveNotifClass p {
+    font-size: .3rem;
+    color: #155724;
+    letter-spacing: 1px;
+  }
 }

@@ -12,6 +12,8 @@ function Navbar() {
 
     function logoutHandler() {
         localStorage.removeItem("token");
+        localStorage.removeItem("expiration")
+        localStorage.removeItem("userId")
         navigate("/")
         burgerClickHandler()
     }
@@ -21,7 +23,7 @@ function Navbar() {
         setMobileNavAppear(!mobileNavAppear);
     }
 
-    
+
     const activateNav = mobileNavAppear === true ? `${classes['nav-active']}` : '';
 
     return (
@@ -46,15 +48,15 @@ function Navbar() {
                     </section>
 
                     <section className={classes.userLoginSignupNav}>
-                            {!token &&
+                        {!token &&
                             <>
                                 <NavbarBtn onClick={burgerClickHandler} link={"/login"} navItemName={"Login"} />
                                 <NavbarBtn onClick={burgerClickHandler} link={"/Signup"} navItemName={"Signup"} />
                             </>}
 
-                            {token && <>
-                                <NavbarBtn onClick={logoutHandler} link={"/"} navItemName={"logout"} />
-                            </>}
+                        {token && <>
+                            <NavbarBtn onClick={logoutHandler} link={"/"} navItemName={"logout"} />
+                        </>}
                     </section>
                 </section>
             </section>
