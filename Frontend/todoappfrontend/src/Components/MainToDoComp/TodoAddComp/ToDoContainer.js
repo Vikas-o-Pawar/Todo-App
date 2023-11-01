@@ -10,7 +10,7 @@ function ToDoContainer() {
   return (    
     <div className={classes.todoCardMainDiv}>
             {todoArr.map((todo) => {
-              return <ToDoCard key={todo._id} cardFunction={"addToDo"} todoContent={todo.content} />
+              return <ToDoCard key={todo._id} todoId={todo._id} cardFunction={"addToDo"} todoContent={todo.content} />
              })}
     </div>
   )

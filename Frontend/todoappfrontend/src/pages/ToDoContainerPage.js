@@ -18,6 +18,7 @@ export async function loader() {
     const token = getAuthToken();
     const userID = getUserID();
     const response = await fetch("http://192.168.54.78:8080/getAddToDo?user=" + userID, {
+        method: "GET",
         headers: {
             "Authorization": 'Bearer ' + token,
 

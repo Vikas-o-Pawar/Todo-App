@@ -18,6 +18,10 @@
     justify-content: space-around;
 }
 
+.todoIdInput {
+    display: none;
+}
+
 .editToDoBtn {
   background-color: #65717f;
   color: white;

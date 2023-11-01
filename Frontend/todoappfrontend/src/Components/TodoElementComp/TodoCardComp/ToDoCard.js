@@ -23,9 +23,24 @@ function ToDoCard(props) {
                 </div>
 
                 <div className={classes.todoCardControlBtnDiv}>
-                    {props.cardFunction === "addToDo" && <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
-                    <Form>
-                        <TodoBtn name={"DeleteBtn"} dynamicToDoBtnClassName={classes.deleteToDoBtn} controlBtnName={"Delete"} />
+                    {/* if the function of the card is add todo then edit button will appear if recycledToDo then restore button will appear. */}
+                    {props.cardFunction === "addToDo" &&
+                        <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
+
+
+                    <Form method="delete">
+                        {props.cardFunction === "recycledToDo" && (
+                            <div>
+                                <input type="text" name={"restoreBtn"} defaultValue={props.todoId} className={classes.todoIdInput} />
+                                <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn}  controlBtnName={"Restore"} />
+                            </div>
+                        )}
+                    </Form>
+
+                    <Form method='DELETE'>
+                        {/* input is set to display none, it is for accessing userID. */}
+                        <input type="text" defaultValue={props.todoId} name={"deleteTodoId"} className={classes.todoIdInput} />
+                        <TodoBtn name={"DeleteBtn"} deleteTodoId={props.todoId} dynamicToDoBtnClassName={classes.deleteToDoBtn} controlBtnName={"Delete"} />
                     </Form>
                 </div>
             </div>

@@ -29,15 +29,13 @@ function NotificationPage() {
                     if (userAuthData.task === "signup") {
                         navigate('/login')
                     }
-                    else if (userAuthData.task === "login") {
+                    if (userAuthData.task === "login") {
                         localStorage.setItem("userId", userAuthData.userId);
                         navigate("/");
-                    } else if (userAuthData.task === "add todo") {
-                        // do nothing
                     }
-                    else {
-                        navigate("/")
-                    }
+                    //  else if (userAuthData.task === "add todo" || userAuthData.task === "delete todo" || userAuthData.task === "deleted recycledtodo") {
+                    //     // do nothing
+                    // }
                 }
             }, 3000);
 
