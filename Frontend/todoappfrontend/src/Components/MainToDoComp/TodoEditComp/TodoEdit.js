@@ -1,31 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import classes from './TodoEdit.module.css'
-import TodoInput from '../../TodoElementComp/TodoInputComp/TodoInput';
+import { Form } from 'react-router-dom';
 import TodoBtn from '../../TodoControlButtonComp/TodoBtn';
-import editToDoContext from '../../Context/EditToDoContext/EditTodo-Context';
-import { useContext } from 'react';
 import { useCheckLoggedInAndRedirect } from '../../../auth/useCheckLoggedInAndRedirect';
 
 function TodoEdit(props) {
     useCheckLoggedInAndRedirect()
-    const editCtx = useContext(editToDoContext);
+    const [text, setText] = useState("")
 
-    useEffect(() => {
-        if (editCtx.editTodoValue !== "") {
-            localStorage.setItem("editTodoContent", editCtx.editTodoValue);
-        }
-    }, [editCtx.editTodoValue]);
-
+    function onEditTextChange(event) {
+        setText(event.target.value)
+    }
 
     return (
         <section className={classes.todoEditSection}>
             <div className={classes.editTodoHeading}>
                 <h1>Edit ToDo</h1>
             </div>
-            <div className={classes.todoEditDiv}>
-                <TodoInput editToDoContent={localStorage.getItem("editTodoContent")} todoInputFieldProp={classes.editTodoInput} />
-                <TodoBtn controlBtnName={"Edit"} dynamicToDoBtnClassName={classes.editTodoBtn} />
-            </div>
+            <Form method="PUT">
+                <div className={classes.todoEditDiv}>
+                    <textarea
+                    className={classes.editTextArea}
+                        name="editTodoValue"
+                        defaultValue={localStorage.getItem("editTodoContent") + text}
+                        cols="30" rows="10"
+                        onChange={onEditTextChange}
+                    ></textarea>
+
+                    <input type="text" name={"editTodoId"} defaultValue={localStorage.getItem("editTodoId")} className={classes.editTodoId} />
+
+                    <TodoBtn controlBtnName={"Edit"} dynamicToDoBtnClassName={classes.editTodoBtn} />
+                </div>
+            </Form>
+
         </section>
     )
 }

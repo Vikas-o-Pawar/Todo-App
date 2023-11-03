@@ -4,6 +4,10 @@ export function getAuthToken() {
     if(token === null) {
         return null;
     }
+
+    // if(getTokenDuration() < 0) {
+    //     return "EXPIRED"
+    // }
     return token
 }
 
@@ -18,5 +22,6 @@ export function getTokenDuration() {
     const expirationDate = new Date(storedExpirationDate);
     const now = new Date();
     const duration = expirationDate.getTime() - now.getTime();
+
     return duration
 }

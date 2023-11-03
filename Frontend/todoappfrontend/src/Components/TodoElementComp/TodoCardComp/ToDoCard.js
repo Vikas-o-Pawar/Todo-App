@@ -1,19 +1,16 @@
 import React from 'react'
 import classes from './ToDoCard.module.css'
 import TodoBtn from '../../TodoControlButtonComp/TodoBtn'
-import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react';
-import editToDoContext from '../../Context/EditToDoContext/EditTodo-Context';
+import { Link } from 'react-router-dom'
 import { Form } from 'react-router-dom';
 
 function ToDoCard(props) {
-    const editCtx = useContext(editToDoContext);
-    const navigate = useNavigate();
 
-    const editNavHandler = async () => {
-        await editCtx.updateEditTodo(props.todoContent)
-        navigate("/editToDo")
+    const editNavHandler = () => {
+        localStorage.setItem("editTodoContent", props.todoContent);
+        localStorage.setItem("editTodoId", props.todoId);
     }
+
     return (
         <section className={classes.todoCardSection}>
 
@@ -24,15 +21,17 @@ function ToDoCard(props) {
 
                 <div className={classes.todoCardControlBtnDiv}>
                     {/* if the function of the card is add todo then edit button will appear if recycledToDo then restore button will appear. */}
-                    {props.cardFunction === "addToDo" &&
-                        <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
-
+                    {props.controlBtnName !== "Restore" && <Link to={"/editToDo/" + props.todoId}>
+                        {props.cardFunction === "addToDo" &&
+                            <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
+                    </Link>
+}
 
                     <Form method="delete">
                         {props.cardFunction === "recycledToDo" && (
                             <div>
                                 <input type="text" name={"restoreBtn"} defaultValue={props.todoId} className={classes.todoIdInput} />
-                                <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn}  controlBtnName={"Restore"} />
+                                <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} controlBtnName={"Restore"} />
                             </div>
                         )}
                     </Form>

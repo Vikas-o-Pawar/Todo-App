@@ -2,8 +2,6 @@ import Home from './Components/HomeComp/Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './pages/Root';
 import ErrorElement from './pages/ErrorElement';
-import TodoEdit from './Components/MainToDoComp/TodoEditComp/TodoEdit';
-import EditTodoProvider from './Components/Context/EditToDoContext/EditTodo-Provider';
 import AuthenticationSignup, { action as signUpAction } from './pages/AuthenticationSignup';
 import AuthenticationLogin, { action as loginAction } from './pages/AuthenticationLogin';
 import { tokenLoader } from './auth/token';
@@ -11,6 +9,7 @@ import AddToDoPage, { action as addToDoAction } from './pages/AddToDoPage';
 import TextValidProvider from './Components/Context/TextValidationContext/TextValid-Provider';
 import { loader as getToDoLoader } from './pages/ToDoContainerPage'
 import RecycledTodoPage, { loader as recycledTodoLoader, action as recycledTodoAction } from './pages/RecycledTodoPage';
+import TodoEditPage, { action as editToDoAction } from './pages/TodoEditPage';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
       { path: "/recycledToDo", element: <RecycledTodoPage />, loader: recycledTodoLoader, action: recycledTodoAction },
       { path: "/login", element: <AuthenticationLogin />, action: loginAction },
       { path: "/signup", element: <AuthenticationSignup />, action: signUpAction, id: "signUpRoute" },
-      { path: "/editToDo", element: <TodoEdit /> }
+      { path: "/editToDo/:todoId", element: <TodoEditPage />, action: editToDoAction }
     ]
   },
 ])
@@ -34,9 +33,7 @@ function App() {
   return (
     <>
       <TextValidProvider>
-        <EditTodoProvider>
           <RouterProvider router={router} />
-        </EditTodoProvider>
       </TextValidProvider>
     </>
   );

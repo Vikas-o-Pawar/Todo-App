@@ -13,6 +13,16 @@
   align-items: center;
 }
 
+.editTodoId {
+  display: none;
+}
+
+.editTextArea {
+  font-size: 1rem;
+  width: 300px;
+  height: 70px;
+  resize: none;
+}
 
 .editTodoBtn {
   background-color: #65717f;
@@ -32,7 +42,7 @@
 }
 
 @media screen and (max-width: 350px) {
-  .editTodoInput {
+  .editTextArea {
     max-width: 80%;
   }
 }

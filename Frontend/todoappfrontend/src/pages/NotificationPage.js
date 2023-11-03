@@ -33,11 +33,14 @@ function NotificationPage() {
                         localStorage.setItem("userId", userAuthData.userId);
                         navigate("/");
                     }
-                    //  else if (userAuthData.task === "add todo" || userAuthData.task === "delete todo" || userAuthData.task === "deleted recycledtodo") {
-                    //     // do nothing
-                    // }
+
+                    // if editing todo was successful we navigate back to add todo page
+                    if(userAuthData.task === "edit todo") {
+                        navigate("/addToDo")
+                    }
+                    
                 }
-            }, 3000);
+            }, 2000);
 
             return () => clearTimeout(timer);
             // Clear the timer when the component unmounts or userAuthData changes

@@ -13,7 +13,9 @@ function Navbar() {
     function logoutHandler() {
         localStorage.removeItem("token");
         localStorage.removeItem("expiration")
-        localStorage.removeItem("userId")
+        localStorage.removeItem("userId");
+        localStorage.removeItem("editTodoContent")
+        localStorage.removeItem("editTodoId")
         navigate("/")
         burgerClickHandler()
     }
