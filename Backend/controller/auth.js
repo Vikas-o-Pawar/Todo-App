@@ -35,7 +35,7 @@ exports.login = (req, res, next) => {
                     email: email,
                     userId: loadedUser._id.toString()
                 }, '#&@^@^@*&^#&@secret(!)$*@^*QE',
-                { expiresIn: '1h' })
+                { expiresIn: '1hr' })
 
             res.status(200).json({ token: token, userId: loadedUser._id.toString(), result: "Success", message: "Logged in!", status:200, task:"login" });
         }).

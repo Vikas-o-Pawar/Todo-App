@@ -39,7 +39,7 @@ exports.addToDo = async (req, res, next) => {
 
 exports.getAddToDo = (req, res, next) => {
     const userId = req.query.user;
-
+    // const userId = "";
     todo.find({ user: userId })
         .then((todos) => {
             if (!todo) {
@@ -153,13 +153,35 @@ exports.restoreRecycledTodo = (req, res, next) => {
                 lastEdited: result.lastEdited,
                 user: result.user
             })
-            newTodo.save().then(() =>{}).catch(err => next(err));
+            newTodo.save().then(() => { }).catch(err => next(err));
 
-            
+
             return res.status(200).json({ message: "Todo was restored successfully!", result: "Success", status: 200, task: "restore todo" })
 
         }).
         catch(error => {
             next(error)
+        })
+}
+exports.editToDo = (req, res, next) => {
+    const todoId = req.query.todoId;
+    const editedTodoContent = req.body.todoValue;
+
+    todo.findById({ _id: todoId }).
+        then(todo => {
+            if (!todo) {
+                const error = new Error("Todo couldn't be found")
+                error.status = 404,
+                    error.result = "Failure"
+                error.message = "Coudn't find todo"
+                throw error
+            }
+            todo.content = editedTodoContent
+            todo.save().catch(err => next(err));
+
+            res.status(200).json({ result: 'Success', message: 'Todo edited successfully', task: "edit todo" });
+        }).
+        catch(error => {
+            next(error);
         })
 }

@@ -16,4 +16,5 @@ router.delete("/deleteRecycledToDo", isAuth, userFunctionalityController.deleteR
 
 router.delete("/restoreRecycledTodo", isAuth, userFunctionalityController.restoreRecycledTodo)
 
+router.put("/editToDo", isAuth, userFunctionalityController.editToDo)
 module.exports = router
