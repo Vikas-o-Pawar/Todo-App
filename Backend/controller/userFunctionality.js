@@ -166,7 +166,14 @@ exports.restoreRecycledTodo = (req, res, next) => {
 exports.editToDo = (req, res, next) => {
     const todoId = req.query.todoId;
     const editedTodoContent = req.body.todoValue;
-
+    if(editedTodoContent.length < 5 || editedTodoContent.length > 150) {
+        const error = new Error("Input is invalid");
+        error.status = 404;
+        error.result = "Failure"
+        error.message = "invalid input";
+        throw error;
+    } 
+    
     todo.findById({ _id: todoId }).
         then(todo => {
             if (!todo) {

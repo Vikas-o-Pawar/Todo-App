@@ -12,11 +12,11 @@ function RecycledTodo() {
   return (
     <section className={classes.recycledTodoSection}>
       <div className={classes.recycledToDoHeading}>
-        {!recycledTodoArr && recycledTodoArr.length === 0 &&
+        {recycledTodoArr !== undefined && recycledTodoArr.length === 0 &&
           <h1>You haven't deleted any ToDos</h1>
         }
 
-        {!recycledTodoArr && recycledTodoArr.length !== 0 &&
+        {recycledTodoArr && recycledTodoArr.length !== 0 &&
           <h1>Your recycled ToDos...</h1>
         }
       </div>

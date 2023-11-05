@@ -21,11 +21,10 @@ function ToDoCard(props) {
 
                 <div className={classes.todoCardControlBtnDiv}>
                     {/* if the function of the card is add todo then edit button will appear if recycledToDo then restore button will appear. */}
-                    {props.controlBtnName !== "Restore" && <Link to={"/editToDo/" + props.todoId}>
-                        {props.cardFunction === "addToDo" &&
-                            <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />}
-                    </Link>
-}
+
+                    {props.cardFunction === "addToDo" && <Link to={"/editToDo/" + props.todoId}>
+                        <TodoBtn dynamicToDoBtnClassName={classes.editToDoBtn} onClick={editNavHandler} controlBtnName={"Edit"} />
+                    </Link>}
 
                     <Form method="delete">
                         {props.cardFunction === "recycledToDo" && (

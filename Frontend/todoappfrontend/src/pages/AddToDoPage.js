@@ -56,7 +56,6 @@ async function deleteTodoFunc(request, todoId, token) {
 }
 
 async function addToDoFetcher(request, userData, token) {
-    console.log(token)
     const response = await fetch("http://192.168.54.78:8080/addToDo", {
         method: request.method,
         headers: {

@@ -34,6 +34,6 @@ export async function action({ request }) {
         return { result: resData.result, message: resData.message, status: response.status, task: resData.task }
 
     } catch (error) {
-        console.log(error);
+        return json({ result: 'Failure', message: error.message, status: 500 });
     }
 }
