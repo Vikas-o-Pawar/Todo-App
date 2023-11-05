@@ -20,7 +20,7 @@ export async function action({ request }) {
             userEmail: data.get("userEmail"),
             userPassword: data.get("userPassword")
         }
-        
+
         if (!emailValidation(data.get("userEmail")) || !validatePassword(data.get("userPassword"))) {
             return json({ message: "Please enter the right credentials.", result: "Warning" })
         }
@@ -51,15 +51,14 @@ export async function action({ request }) {
 
             const token = resData.token
             localStorage.setItem('token', token);
-            const expiration = new Date();
-            
-            console.log(expiration)
-            expiration.setMinutes(expiration.getMinutes() + 1)
-            // expiration.setHours(expiration.getHours() + 1);
-            // console.log(expiration.getHours())
-            // localStorage.setItem('expiration', expiration.toISOString());
-            localStorage.setItem('expiration', expiration.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
 
+            const expiration = new Date();
+            // expiration.setMinutes(expiration.getMinutes() + 1)
+            expiration.setHours(expiration.getHours() + 1)
+            
+            const expirationString = expiration.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+
+            localStorage.setItem('expiration', expirationString);
             return resData;
         }
 

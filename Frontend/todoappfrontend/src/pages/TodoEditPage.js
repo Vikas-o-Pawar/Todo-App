@@ -16,7 +16,6 @@ export async function action({ request }) {
         const token = getAuthToken();
         const inputData = await request.formData();
         const todoId = inputData.get("editTodoId");
-        console.log(todoId)
         const todoValue = inputData.get("editTodoValue");
         const response = await fetch("http://192.168.54.78:8080/editToDo?todoId=" + todoId, {
             method: request.method,
