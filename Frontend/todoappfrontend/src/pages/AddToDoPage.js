@@ -4,6 +4,7 @@ import { tokenLoader } from '../auth/token'
 import { json } from 'react-router-dom'
 
 function AddToDoPage() {
+    document.title = "Add To-Do"
     return (
         <AddToDo />
     )

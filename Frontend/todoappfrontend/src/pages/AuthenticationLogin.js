@@ -3,7 +3,7 @@ import { json } from 'react-router-dom'
 import Login from '../Components/LoginSignUpComponent/Login'
 
 function AuthenticationLogin() {
-
+    document.title = "Login"
     return (
         <Login />
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import Signup from '../Components/LoginSignUpComponent/Signup'
 import { json } from 'react-router-dom'
 function AuthenticationSignup() {
+    document.title = "Signup"
     return (
         <Signup />
     )

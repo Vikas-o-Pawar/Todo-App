@@ -4,6 +4,7 @@ import { getAuthToken } from '../auth/token'
 import { getUserID } from '../auth/userId';
 import { json } from 'react-router-dom';
 export default function RecycledTodoPage() {
+    document.title = "Recycled To-Do"
     return (
         <div>
             <RecycledTodo />

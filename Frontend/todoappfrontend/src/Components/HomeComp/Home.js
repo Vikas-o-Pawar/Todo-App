@@ -10,7 +10,7 @@ function Home() {
   const [currentWidthImage, setCurrentWidthImage] = useState(window.innerWidth);
   const navigate = useNavigate();
   const token = useRouteLoaderData("root");
-  useState(() => { 
+  useState(() => {
     const handleResize = () => {
       setCurrentWidthImage(window.innerWidth)
     }
@@ -20,10 +20,13 @@ function Home() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  } , []);
+  }, []);
+
+  // changing the title
+  document.title = "Home"
 
   const navigateHandler = () => {
-    if(token === null) {
+    if (token === null) {
       navigate("/login")
     } else {
 
@@ -34,6 +37,7 @@ function Home() {
   const homeImg = currentWidthImage <= 575 ? mainHomeMobileImg : mainHomeImg
   return (
     <section className={classes.mainHomeSection}>
+
       <section className={classes.homeImageSection}>
         <img src={homeImg} className={classes.mainHomeImg} alt="" />
         <TodoBtn controlBtnName={"Add To-Do"} onClick={navigateHandler} dynamicToDoBtnClassName={classes.addTodoBtn} />

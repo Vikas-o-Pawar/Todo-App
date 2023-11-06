@@ -4,6 +4,7 @@ import { getAuthToken } from '../auth/token';
 import { json } from 'react-router-dom';
 
 export default function TodoEditPage() {
+    document.title = "Edit To-Do"
     return (
         <div>
             <TodoEdit />
